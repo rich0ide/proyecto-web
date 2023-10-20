@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+        body {
+            background-color: #cfe2f3;
+            font-family: Arial, sans-serif;
+        }
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            gap: 0px; 
+        }
+        form, .welcome-box {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; 
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            background-color: #FFF; 
+            width: 300px;
+        }
+        h2 {
+            font-size: 1.5em;
+        }
+        label {
+            margin-bottom: 0;
+        }
+        input[type="submit"] {
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            width: 50%;
+            align-self: center;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .register {
+            font-size: 0.8em;
+            text-align: center;
+        }
+        .welcome-box {
+            justify-content: center;
+            align-items: center;
+            background-color: #87CEFA; 
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+      <div class="container">
+          <form id="loginForm" method="POST">
+              <h2>Inicio de Sesión</h2> 
+              <label for="username">Usuario:</label>
+              <input type="text" id="username" name="username" required>
+              <label for="password">Contraseña:</label>
+              <input type="password" id="password" name="password" required>
+              <input type="submit" value="Ingresar">
+              <p class="register"><a href="/register">¿No tienes una cuenta? Registrate</a></p>
+          </form>
+
+          <div class="welcome-box">
+              <h3>¡Bienvenido!</h3>
+              <p>Estamos emocionados de verte aquí. ¡Inicia sesión y comienza tu aventura!</p>
+          </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            if(username === 'admin' && password === '123') {
+                window.location.href = 'crud_interfaz.php';
+            } else {
+                alert('Usuario o contraseña incorrectos');
+            }
+        });
+    </script>
+</body>
+</html>
